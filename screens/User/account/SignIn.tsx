@@ -85,7 +85,7 @@ const SignIn = ({navigation}) => {
                   }}
                 />
                 <TextInput
-                  placeholder="Enter your email or phone number..."
+                  placeholder="Enter your email ..."
                   onChangeText={value => setEmail(value)}
                   autoCapitalize={'none'}
                   style={{
@@ -171,7 +171,7 @@ const SignIn = ({navigation}) => {
                   ...styles.shadow,
                 }}
                 onPress={() => {
-                  alert('Working');
+                  navigation.push('dashboard');
                 }}>
                 <View>
                   <Text

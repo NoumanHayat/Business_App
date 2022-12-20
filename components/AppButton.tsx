@@ -1,9 +1,14 @@
 import React from 'react';
-import {TextStyle, View, ViewStyle, TouchableHighlight} from 'react-native';
+import {
+  TextStyle,
+  View,
+  ViewStyle,
+  TouchableHighlight,
+  Text,
+} from 'react-native';
 import AppText from './AppText';
-import {COLORS} from '../constants';
 import FastImage, {ImageStyle} from 'react-native-fast-image';
-
+import {COLORS, icons,FONTS} from '../constants';
 interface Props {
   text: string;
   icon?: any;
@@ -11,6 +16,7 @@ interface Props {
   style?: ViewStyle;
   textStyle?: TextStyle;
   iconStyle?: ImageStyle;
+  boxStyles?: any;
 }
 
 export default function AppButton({
@@ -20,13 +26,14 @@ export default function AppButton({
   style,
   textStyle,
   iconStyle,
+  boxStyles,
 }: Props) {
   return (
     <View
       style={{
         overflow: 'hidden',
-        backgroundColor: COLORS.primary,
-        borderRadius: 50,
+        backgroundColor: COLORS.dark,
+        borderRadius: 5,
         ...style,
       }}>
       <TouchableHighlight
@@ -41,16 +48,15 @@ export default function AppButton({
             paddingVertical: 16,
             justifyContent: 'center',
             alignItems: 'center',
+            ...boxStyles,
           }}>
-          <AppText
-            fontWeight="Medium"
-            style={{color: COLORS.white, fontSize: 14, ...textStyle}}>
+          <Text style={{fontSize: 14,color: COLORS.white, ...textStyle,fontFamily:FONTS.Normal }}>
             {text}
-          </AppText>
+          </Text>
           {icon && (
             <FastImage
               source={icon}
-              tintColor={COLORS.primary}
+              // tintColor={COLORS.primary}
               style={{
                 width: 12,
                 height: 12,

@@ -66,8 +66,8 @@ const SignIn = ({ navigation }) => {
                 source={images.logo}
                 resizeMode="contain"
                 style={{
-                  height: 250,
-                  width: 500,
+                  height: 150,
+                  width: 200,
                 }}
               />
             </View>
@@ -118,7 +118,7 @@ const SignIn = ({ navigation }) => {
                   }}
                 />
                 <TextInput
-                  placeholder="Enter your email or phone number..."
+                  placeholder="Enter your email ..."
                   onChangeText={value => setEmail(value)}
                   autoCapitalize={'none'}
                   style={{
@@ -223,7 +223,7 @@ const SignIn = ({ navigation }) => {
               </View>
 
               <Text style={{ fontSize: 14, marginLeft: 12, marginTop: 30, color: 'black' }}>
-                Degree
+                Worker ID
               </Text>
               <View style={styles.textBoxSign}>
                 <View style={{
@@ -232,7 +232,7 @@ const SignIn = ({ navigation }) => {
                   <Icon name="book-edit" size={24} color="black" />
                 </View>
                 <TextInput
-                  placeholder="Degree ..."
+                  placeholder="Worker ID ..."
                   onChangeText={value => setEmail(value)}
                   autoCapitalize={'none'}
                   style={{
@@ -246,72 +246,7 @@ const SignIn = ({ navigation }) => {
               </View>
 
 
-              <Text style={{ fontSize: 14, marginLeft: 12, marginTop: 30, color: 'black' }}>
-                Location
-              </Text>
-              <View style={styles.textBoxSign}>
-                <View style={{
-                  paddingTop: 7
-                }}>
-                  <Icon name="location-enter" size={24} color="black" />
-                </View>
-                <TextInput
-                  placeholder="Location"
-                  onChangeText={value => setEmail(value)}
-                  autoCapitalize={'none'}
-                  style={{
-                    flex: 1,
-                    height: 40.5,
-                    fontSize: 15,
-                    marginLeft: 2,
-                    color: 'black',
-                  }}
-                />
-              </View>
-              <View >
-                <Text style={{ fontSize: 14, marginLeft: 12, marginTop: 30, color: 'black' }}>About you</Text>
-                <View style={{
-                  flexDirection: 'row',
-                  height: 245,
-                  marginHorizontal: 5,
-                  marginTop: 5,
-                  paddingHorizontal: SIZES.radius,
-                  borderRadius: SIZES.radius,
-                  backgroundColor: COLORS.lightGray,
-                  elevation: 2,
-                }}>
-                  <TextInput
-                    placeholder="Tell something about you..."
-                    onChangeText={value => setAboutyou(value)}
-                    placeholderTextColor="gray"
-                    autoCapitalize={'none'}
-                    multiline={true}
-                    numberOfLines={4}
-                    style={{
-                      flex: 1,
-                      height: 240.5,
-                      fontSize: 15,
-                      marginLeft: 2,
-                      color: 'black',
-
-                    }}
-                  />
-                </View>
-              </View>
-
-              <TouchableOpacity>
-                <Text
-                  style={{
-                    color: COLORS.darkgray,
-                    marginBottom: -15,
-                    top: 8,
-                    alignSelf: 'flex-end',
-                    right: 25,
-                  }}>
-                  Reset Password
-                </Text>
-              </TouchableOpacity>
-
+              
               <TouchableOpacity
                 style={{
                   flexDirection: 'row',
@@ -362,7 +297,7 @@ const SignIn = ({ navigation }) => {
                   <Text
                     style={{
                       color: COLORS.primary,
-                      fontSize: 19,
+                      fontSize: 12,
                     }}>
                     Sign In
                   </Text>

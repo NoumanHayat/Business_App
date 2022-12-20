@@ -55,7 +55,7 @@ export const SearchBar: FC<Props> = ({
           />
           {/* <AppText style={{ color: placeholderColor, fontSize: 16 }}>{placeholder}</AppText> */}
           <TextInput
-                  placeholder="Enter your email or phone number..."
+                  placeholder="Enter your email"
                   onChangeText={(value) => setEmail(value)}
                   autoCapitalize={'none'}
                   style={{

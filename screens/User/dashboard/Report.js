@@ -22,16 +22,23 @@ import { COLORS, images, SIZES, GRADIENTS } from '../../../constants';
 import { Avatar, Title } from 'react-native-paper';
 import ModalLayout from './ModalLayout';
 import { FAB, Card } from 'react-native-elements';
+import ScreenHaderDashboard from '../../../components/ScreenHaderDashboard';
+import AppInput from '../../../components/AppInput';
+import { SelectList } from 'react-native-dropdown-select-list';
+import Feather from 'react-native-vector-icons/Feather';
+import AppButton from '../../../components/AppButton';
+
 // import auth from '@react-native-firebase/auth';
 
 // eslint-disable-next-line react/prop-types,@typescript-eslint/ban-ts-comment
 // @ts-ignore
 // eslint-disable-next-line react/prop-types
 
-const CustomCard = ({navigation}) => {
+const CustomCard = ({ navigation }) => {
     const [visible, setVisible] = useState(false);
     return (
         <View>
+
             <TouchableOpacity onPress={() => {
                 setVisible(true);
             }}>
@@ -53,9 +60,9 @@ const CustomCard = ({navigation}) => {
                             borderRadius: 1,
                         }} source={{ uri: 'https://clashofclans.com/uploaded-images-blog/_1440xAUTO_crop_center-center_90/Clash-at-Home_thumbnail_builder_906x506.jpg' }} />
                         <View style={{ padding: 10 }}>
-                        <Text style={{ fontSize: 15, color: 'gray',alignSelf:'flex-end' }}>Posted 40 min ago</Text>
+                            <Text style={{ fontSize: 15, color: 'gray', alignSelf: 'flex-end' }}>Posted 40 min ago</Text>
                             <Text style={{ fontSize: 23, color: 'black' }}>Here we Go!</Text>
-                            <Text style={{color: 'black'}}>We will remove extra Barracks and Dark Barracks buildings and
+                            <Text style={{ color: 'black' }}>We will remove extra Barracks and Dark Barracks buildings and
                                 only keep one of each. The highest level building will be kept,
                                 and in case all the highest level buildings are under construction
                                 you will keep the one with the shortest upgrade time left.</Text>
@@ -86,11 +93,11 @@ const CustomCard = ({navigation}) => {
 
                             <View style={{ padding: 10 }}>
                                 <Text style={{ fontSize: 23, color: 'black' }}>Here we Go!</Text>
-                                <Text style={{color: 'black'}}>We will remove extra Barracks and Dark Barracks buildings and
+                                <Text style={{ color: 'black' }}>We will remove extra Barracks and Dark Barracks buildings and
                                     only keep one of each. The highest level building will be kept,
                                     and in case all the highest level buildings are under construction
                                     you will keep the one with the shortest upgrade time left....</Text>
-                                    
+
                             </View>
 
                             <View style={{ flexDirection: 'row', marginTop: 10, }}>
@@ -113,7 +120,7 @@ const CustomCard = ({navigation}) => {
                                     </TouchableOpacity>
                                 </LinearGradient>
                                 <LinearGradient
-                                    colors={ ['#FF0080', '#7928CA']}
+                                    colors={['#FF0080', '#7928CA']}
                                     end={{ x: 0, y: 1 }}
                                     start={{ x: 1, y: 0 }}
                                     style={{ borderRadius: 30, marginLeft: '10%' }}
@@ -161,6 +168,19 @@ const CustomCard = ({navigation}) => {
     );
 };
 const Profile = ({ navigation }) => {
+    const [selected, setSelected] = useState('Appliances');
+    const data = [
+        { key: '2', value: 'Room not clean' },
+        { key: '3', value: 'request for fumigation' },
+        { key: '5', value: 'Electrical Fault' },
+        { key: '6', value: 'AC not working' },
+        { key: '7', value: 'Rest Room water leaking' },
+        { key: '8', value: 'Rest Room no water supply' },
+        { key: '9', value: 'Rest Room bad replacement/repair' },
+        { key: '10', value: 'Pillow Request' },
+        { key: '11', value: 'Bed sheet Request' },
+
+    ];
     return (
         <ImageBackground
             source={images.background}
@@ -171,54 +191,49 @@ const Profile = ({ navigation }) => {
                 // justifyContent: 'center',
             }}>
             <SafeAreaView>
+                <ScreenHaderDashboard navigation={navigation} title={'Report'} />
                 <KeyboardAwareScrollView>
                     <View
                         style={{
-                            flex: 1,
+                           
+                            margin: 20,
+                       
                         }}>
-                        <View style={{ margin: 15, marginTop: 10 }}>
-                            <View style={{ margin: 5, justifyContent: 'center', alignItems: 'center', fontWeight: 'bold' }}>
-                                <Text style={{ fontSize: 30, color: 'black' }}>Entrepreneur Dashboard</Text>
-                            </View>
-                            <View style={styles.userInfoSection}>
-                                <View style={{ flexDirection: 'row', marginTop: 15 }}>
-                                    <Avatar.Image
-                                        source={{ uri: 'https://cdn.techjuice.pk/wp-content/uploads/2015/02/wallpaper-for-facebook-profile-photo.jpg' }}
-                                        size={100}
-                                    />
-                                    <View style={{ marginLeft: 20 }}>
-                                        <View style={styles.row}>
-                                            <Icon name="account" size={20} color="black" />
-                                            <Text style={{ color: 'black', marginLeft: 3 }}>User Name</Text>
-                                        </View>
-                                        <View style={styles.row}>
-                                            <Icon name="email" color="black" size={20} />
-                                            <Text style={{ color: 'black', marginLeft: 3 }}>email@gmail.com</Text>
-                                        </View>
-                                        <View style={styles.row}>
-                                            <Icon name="account-box-multiple" size={20} color="black" />
-                                            <Text style={{ color: 'black', marginLeft: 3 }}>17/07/1997</Text>
-                                        </View>
+                        <View >
+                            <Text style={styles.title}>Status Issue</Text>
+                            <View>
+                                <SelectList
+                                    setSelected={(val) => setSelected(val)}
+                                    data={data}
+                                    inputStyles={{ color: 'gray' }}
+                                    dropdownTextStyles={{ color: 'gray' }}
+                                    boxStyles={styles.dropdownBox}
+                                    save="value"
+                                    search={false}
+                                    searchPlaceholder={'Selected'}
+                                    arrowicon={<View >
+                                        <Feather name="chevron-down" size={24} color="black" />
                                     </View>
-                                </View>
+                                    }
+                                />
                             </View>
+                            <Text style={{ marginTop: 15, ...styles.title }}>Enter Details</Text>
+                            <AppInput icon={null} heightDivider={2.5} defaultValue={'Please Enter details here'} />
 
-                            <View style={styles.OrganizedEvent}>
-                                <Text style={{ fontSize: 30, color: 'black' }}>My Proposal</Text>
-                                <View style={{ marginTop: 10 }}>
-                                    <CustomCard navigation={navigation}/>
-                                    <CustomCard navigation={navigation}/>
-                                    <CustomCard navigation={navigation}/>
-                                    <CustomCard navigation={navigation}/>
-                                    <CustomCard navigation={navigation}/>
-                                    <CustomCard navigation={navigation}/>
-                                </View>
-                            </View>
+                        </View>
+                        <View style={{  justifyContent: 'center', alignItems: 'center',marginTop:'15%' }}>
+                            <AppButton onPress={() => { navigation.navigate('CheckOut') }}
+                                text="Submit"
+                                style={{
+                                    width: '100%',
+                                    // marginTop: 30
+                                }}
+                                textStyle={{ color: COLORS.white, letterSpacing: 2 }}
+                            />
                         </View>
                     </View>
                 </KeyboardAwareScrollView>
             </SafeAreaView>
-            <FAB onPress={() => { navigation.navigate('addProposal'); }} icon={<MaterialIcons name="add" size={24} color="white" />} placement={'right'} />
 
         </ImageBackground >
     );
@@ -226,6 +241,20 @@ const Profile = ({ navigation }) => {
 
 export default Profile;
 const styles = StyleSheet.create({
+
+    dropdownBox: {
+        flexDirection: 'row',
+        height: 50,
+        borderRadius: 5,
+        marginTop: 20,
+        backgroundColor: COLORS.white,
+        marginBottom: 0,
+        borderWidth: 0,
+    },
+    title: {
+        color: COLORS.dark,
+        fontSize: 19
+    },
     shadow: {
         shadowColor: '#000', // for iphone drop shadow (specifies the android equivalent, elevation: 1)
         shadowOffset: {
