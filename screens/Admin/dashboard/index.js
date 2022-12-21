@@ -16,6 +16,7 @@ import { images, SIZES } from '../../../constants';
 import CustomDrawer from '../../Components/CustomDrawer';
 import Report from './Report';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import gatePass from  './gatePass';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 const Drawer = createDrawerNavigator();
@@ -37,6 +38,15 @@ const AppStarting = () => {
       <Drawer.Screen
         name="Report"
         component={Report}
+        options={{
+          drawerIcon: ({ color }) => (
+            <Ionicons name="home-outline" size={22} color={color} />
+          ),
+        }}
+      />
+       <Drawer.Screen
+        name="gatePass"
+        component={gatePass}
         options={{
           drawerIcon: ({ color }) => (
             <Ionicons name="home-outline" size={22} color={color} />
