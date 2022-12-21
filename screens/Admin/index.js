@@ -15,7 +15,6 @@ import {
 import { images, SIZES } from '../../constants';
 const Stack = createNativeStackNavigator();
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SignUp from './account/SignUp';
 import SignIn from './account/SignIn';
 import dashboard from './dashboard';
 // import addProposal from './dashboard/addProposal';
@@ -43,7 +42,6 @@ function AppStarting() {
         headerShown: false,
       }}
       initialRouteName="SignIn">
-      <Stack.Screen name="SignUp" component={SignUp} />
       <Stack.Screen name="SignIn" component={SignIn} />
       <Stack.Screen name="dashboard" component={dashboard} />
 

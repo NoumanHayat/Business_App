@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* eslint-disable react/prop-types */
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
@@ -11,14 +12,14 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 // import auth from '@react-native-firebase/auth';
-import { COLORS, images, SIZES } from '../../../constants';
+import {COLORS, images, SIZES} from '../../../constants';
 
 // eslint-disable-next-line react/prop-types,@typescript-eslint/ban-ts-comment
 // @ts-ignore
 // eslint-disable-next-line react/prop-types
-const SignIn = ({ navigation }) => {
+const SignIn = ({navigation}) => {
   // let currentUser = auth().currentUser;
   const [data, setData] = React.useState({
     password: '',
@@ -97,7 +98,7 @@ const SignIn = ({ navigation }) => {
                 />
               </View>
 
-              <Text style={{ fontSize: 14, marginLeft: 12, marginTop: 30 }}>
+              <Text style={{fontSize: 14, marginLeft: 12, marginTop: 30}}>
                 Password
               </Text>
               <View style={styles.textBoxSign}>
@@ -125,18 +126,18 @@ const SignIn = ({ navigation }) => {
                 />
                 <TouchableOpacity
                   onPress={updateSecureTextEntry}
-                  style={{ alignItems: 'flex-end' }}>
+                  style={{alignItems: 'flex-end'}}>
                   {data.secureTextEntry ? (
                     <Image
                       source={images.eyeclosed}
                       resizeMode="contain"
-                      style={{ width: 25, height: 40 }}
+                      style={{width: 25, height: 40}}
                     />
                   ) : (
                     <Image
                       source={images.eye}
                       resizeMode="contain"
-                      style={{ width: 25, height: 40 }}
+                      style={{width: 25, height: 40}}
                     />
                   )}
                 </TouchableOpacity>
@@ -170,7 +171,7 @@ const SignIn = ({ navigation }) => {
                   ...styles.shadow,
                 }}
                 onPress={() => {
-                  alert('Working');
+                  navigation.push('dashboard');
                 }}>
                 <View>
                   <Text
@@ -185,94 +186,7 @@ const SignIn = ({ navigation }) => {
                   </Text>
                 </View>
               </TouchableOpacity>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  marginTop: SIZES.radius * 2.5,
-                  justifyContent: 'center',
-                }}>
-                <Text style={{ color: COLORS.gray }}>
-                  Don&apos;t have an account?{' '}
-                </Text>
-
-                <TouchableOpacity
-                  style={{
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: COLORS.transparent,
-                  }}
-                  onPress={() => {
-                    navigation.push('SignUp');
-                  }}>
-                  <Text
-                    style={{
-                      color: COLORS.primary,
-                      fontSize: 19,
-                    }}>
-                    Sign Up
-                  </Text>
-                </TouchableOpacity>
-              </View>
-
-              <View
-                style={{
-                  flexDirection: 'row',
-                  marginTop: 15,
-                  justifyContent: 'center',
-                  marginBottom: 5,
-                }}>
-                <TouchableOpacity
-                  style={{
-                    flexDirection: 'row',
-                    alignContent: 'center',
-                    justifyContent: 'center',
-                    height: 65,
-                    width: 120,
-                    marginHorizontal: 20,
-                    marginBottom: -20,
-                    borderRadius: 50,
-                    backgroundColor: COLORS.white,
-                    ...styles.shadow,
-                  }}
-                  onPress={() => {
-                    navigation.push('dashboard');
-                  }}>
-                  <Image
-                    source={images.google}
-                    style={{
-                      alignSelf: 'center',
-                      height: 40,
-                      width: 40,
-                    }}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={{
-                    flexDirection: 'row',
-                    alignContent: 'center',
-                    justifyContent: 'center',
-                    height: 65,
-                    width: 120,
-                    marginHorizontal: 20,
-                    marginBottom: -20,
-                    borderRadius: 50,
-                    backgroundColor: '#4267B2',
-                    ...styles.shadow,
-                  }}
-                  onPress={() => {
-                    navigation.push('dashboard');
-                  }}>
-                  <Text
-                    style={{
-                      color: COLORS.white,
-                      alignSelf: 'center',
-                      fontSize: 40,
-                      fontWeight: 'bold',
-                    }}>
-                    f
-                  </Text>
-                </TouchableOpacity>
-              </View>
+             
             </View>
           </View>
         </KeyboardAwareScrollView>
@@ -304,5 +218,5 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.lightGray,
     elevation: 2,
   },
-  textAbove: { fontSize: 14, marginLeft: 12 },
+  textAbove: {fontSize: 14, marginLeft: 12},
 });
