@@ -10,6 +10,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import CustomDrawer from '../../Components/CustomDrawer';
 import Report from './Report';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import NotificationsScreen from './NotificationsScreen';
+
 
 // import { TouchableOpacity } from 'react-native-gesture-handler';
 const Drawer = createDrawerNavigator();
@@ -31,6 +33,15 @@ const AppStarting = () => {
       <Drawer.Screen
         name="Report"
         component={Report}
+        options={{
+          drawerIcon: ({ color }) => (
+            <Ionicons name="home-outline" size={22} color={color} />
+          ),
+        }}
+      />
+       <Drawer.Screen
+        name="NotificationsScreen"
+        component={NotificationsScreen}
         options={{
           drawerIcon: ({ color }) => (
             <Ionicons name="home-outline" size={22} color={color} />
