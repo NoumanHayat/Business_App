@@ -17,6 +17,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import admin from './screens/Admin';
 import user from './screens/User';
+import GateKeeper from './screens/gatekeeper';
 
 const Stack = createNativeStackNavigator();
 const AppStarting = () => {
@@ -45,6 +46,7 @@ const AppStarting = () => {
             <Stack.Screen name="Select Type" component={Home} />
             <Stack.Screen name="admin" component={admin} />
             <Stack.Screen name="worker" component={user} />
+            <Stack.Screen name="GateKeeper" component={GateKeeper} />
           </Stack.Navigator>
         </NavigationContainer>
       </View>

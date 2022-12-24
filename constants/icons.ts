@@ -21,8 +21,10 @@ const calendar = require('../assets/icons/calendar.png');
 const dropdown = require('../assets/icons/dropdown.png');
 const dropdown2 = require('../assets/icons/dropdown2.png');
 const menu = require('../assets/icons/menu.png');
+const gateKeeper = require('../assets/icons/gateKeeper.png');
 
 export default {
+  gateKeeper,
   menu,
   home,
   profile,
